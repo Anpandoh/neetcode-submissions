@@ -1,0 +1,25 @@
+class Solution:
+
+    def encode(self, strs: List[str]) -> str:
+        res = ""
+        for string in strs:
+            res += str(len(string)) + "!" + string
+        return res
+
+    def decode(self, s: str) -> List[str]:
+        res = []
+        i = 0
+        while i < len(s):
+            j = i
+            while s[j] != "!":
+                j += 1
+            strLen = int(s[i:j])
+            res.append(s[j + 1 : j + strLen + 1])
+            i = j + strLen + 1
+            j = i
+
+        return res
+
+        
+            
+        
